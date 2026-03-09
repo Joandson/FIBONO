@@ -13,10 +13,9 @@
     <meta property="og:title" content="Fibonono Personalizados" />
     <meta
       property="og:description"
-      content="Presentes personalizados com nomes: chaveiros, canecas, camisetas e mais. Feito com carinho e qualidade premium. Peça pelo WhatsApp!"
+      content="Presentes personalizados com nomes: chaveiros, canecas, camisetas e mais."
     />
     <meta property="og:image" content="https://i.imgur.com/kpfKWPK.jpeg" />
-    <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,11 +23,253 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;500&display=swap"
       rel="stylesheet"
     />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+      :root {
+        --primary-color: #0d9488; /* Teal que combina com seu logo */
+        --secondary-color: #25d366; /* Verde WhatsApp */
+        --dark-bg: rgba(0, 0, 0, 0.75);
+        --glass: rgba(255, 255, 255, 0.08);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: url("https://i.imgur.com/eZfkMxc.jpeg") no-repeat center
+          center fixed;
+        background-size: cover;
+        color: #fff;
+      }
+
+      .body-overlay {
+        background: var(--dark-bg);
+        min-height: 100vh;
+      }
+
+      /* HEADER & NAV */
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 15px 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        border-bottom: 1px solid var(--primary-color);
+      }
+
+      .logo img {
+        height: 50px;
+        border-radius: 5px;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+      nav ul li {
+        margin-left: 25px;
+      }
+      nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: 0.3s;
+      }
+      nav ul li a:hover {
+        color: var(--primary-color);
+      }
+
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      /* HERO SECTION */
+      .hero {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .hero-logo {
+        width: 120px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+        box-shadow: 0 0 20px rgba(13, 148, 136, 0.5);
+      }
+
+      .hero h1 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 3rem;
+        margin-bottom: 10px;
+      }
+      .hero p {
+        max-width: 600px;
+        margin-bottom: 30px;
+        font-weight: 300;
+      }
+
+      .btn-main {
+        background: var(--primary-color);
+        color: #fff;
+        padding: 15px 40px;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: bold;
+        transition: 0.3s;
+      }
+      .btn-main:hover {
+        transform: scale(1.05);
+        filter: brightness(1.2);
+      }
+
+      /* PRODUCT GRID */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 80px 20px;
+      }
+      .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+        font-size: 2rem;
+        font-family: "Montserrat";
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+      }
+
+      .product-card {
+        background: var(--glass);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 20px;
+        text-align: center;
+        transition: 0.3s;
+      }
+      .product-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--primary-color);
+      }
+
+      .product-card img {
+        width: 100%;
+        border-radius: 15px;
+        margin-bottom: 15px;
+      }
+      .price {
+        display: block;
+        margin: 10px 0;
+        color: #ddd;
+        font-size: 0.9rem;
+      }
+
+      .btn-buy {
+        display: block;
+        background: var(--secondary-color);
+        color: #fff;
+        padding: 10px;
+        text-decoration: none;
+        border-radius: 10px;
+        font-weight: bold;
+      }
+
+      /* FEATURES SECTION */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        text-align: center;
+      }
+      .feature-item i {
+        color: var(--primary-color);
+        margin-bottom: 15px;
+      }
+
+      /* FOOTER */
+      footer {
+        background: #000;
+        padding: 50px 20px;
+        text-align: center;
+        border-top: 2px solid var(--primary-color);
+      }
+      .footer-brand {
+        height: 40px;
+        margin-bottom: 15px;
+      }
+      .footer-links a {
+        color: #fff;
+        font-size: 1.5rem;
+        margin: 0 10px;
+        transition: 0.3s;
+      }
+      .footer-links a:hover {
+        color: var(--primary-color);
+      }
+      .footer-note {
+        font-size: 0.8rem;
+        opacity: 0.6;
+        margin-top: 10px;
+      }
+
+      /* MOBILE ADJUSTMENTS */
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+        }
+        nav {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background: rgba(0, 0, 0, 0.95);
+          padding: 20px;
+        }
+        nav.open {
+          display: block;
+        }
+        nav ul {
+          flex-direction: column;
+          text-align: center;
+        }
+        nav ul li {
+          margin: 15px 0;
+        }
+        .hero h1 {
+          font-size: 2rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="body-overlay">
@@ -37,17 +278,13 @@
           <img src="https://i.imgur.com/kpfKWPK.jpeg" alt="Fibonono Logo" />
         </div>
 
-        <button
-          class="menu-toggle"
-          aria-label="Abrir menu"
-          aria-expanded="false"
-        >
+        <button class="menu-toggle" aria-label="Abrir menu">
           <i class="fas fa-bars"></i>
         </button>
 
-        <nav aria-label="Navegação principal">
+        <nav>
           <ul>
-            <li><a href="#">Início</a></li>
+            <li><a href="#topo">Início</a></li>
             <li><a href="#produtos">Produtos</a></li>
             <li><a href="#sobre">Por que nós?</a></li>
             <li>
@@ -76,58 +313,54 @@
         </section>
 
         <section class="container" id="produtos">
-          <h2 class="section-title" id="produtos-title">Nossos Presentes</h2>
+          <h2 class="section-title">Nossos Presentes</h2>
           <div class="product-grid">
             <div class="product-card">
               <img src="https://i.imgur.com/OF8lRfA.jpeg" alt="Chaveiro Davi" />
               <h3>Chaveiro Nome Davi</h3>
               <span class="price">a partir de R$ 29,90</span>
               <a
-                href="https://wa.me/5571999530935?text=Olá! Quero personalizar um chaveiro como o do Davi"
+                href="https://wa.me/5571999530935?text=Olá! Quero o chaveiro do Davi"
                 class="btn-buy"
                 ><i class="fab fa-whatsapp"></i> Personalizar</a
               >
             </div>
-
             <div class="product-card">
               <img src="https://i.imgur.com/ZBVOSPD.png" alt="Chaveiro Beto" />
               <h3>Chaveiro Nome Beto</h3>
               <span class="price">a partir de R$ 29,90</span>
               <a
-                href="https://wa.me/5571999530935?text=Olá! Quero personalizar um chaveiro como o do Beto"
+                href="https://wa.me/5571999530935?text=Olá! Quero o chaveiro do Beto"
                 class="btn-buy"
                 ><i class="fab fa-whatsapp"></i> Personalizar</a
               >
             </div>
-
             <div class="product-card">
               <img src="https://i.imgur.com/i9lWn3o.jpeg" alt="Caneca" />
               <h3>Caneca Personalizada</h3>
               <span class="price">a partir de R$ 29,90</span>
               <a
-                href="https://wa.me/5571999530935?text=Olá! Quero personalizar uma caneca"
+                href="https://wa.me/5571999530935?text=Olá! Quero uma caneca personalizada"
                 class="btn-buy"
                 ><i class="fab fa-whatsapp"></i> Personalizar</a
               >
             </div>
-
             <div class="product-card">
               <img src="https://i.imgur.com/CuoGieT.jpeg" alt="Camiseta" />
               <h3>Camiseta Exclusiva</h3>
               <span class="price">a partir de R$ 29,90</span>
               <a
-                href="https://wa.me/5571999530935?text=Olá! Quero personalizar uma camiseta"
+                href="https://wa.me/5571999530935?text=Olá! Quero uma camiseta personalizada"
                 class="btn-buy"
                 ><i class="fab fa-whatsapp"></i> Personalizar</a
               >
             </div>
-
             <div class="product-card">
               <img src="https://i.imgur.com/8QZD1zS.jpeg" alt="Diversos" />
               <h3>Itens Diversos</h3>
               <span class="price">a partir de R$ 29,90</span>
               <a
-                href="https://wa.me/5571999530935?text=Olá! Gostaria de ver outros modelos de personalizados"
+                href="https://wa.me/5571999530935?text=Olá! Quero ver outros itens"
                 class="btn-buy"
                 ><i class="fab fa-whatsapp"></i> Consultar</a
               >
@@ -135,10 +368,8 @@
           </div>
         </section>
 
-        <section class="container section--overlay" id="sobre">
-          <h2 class="section-title" id="sobre-title">
-            Por que escolher a Fibonono?
-          </h2>
+        <section class="container" id="sobre">
+          <h2 class="section-title">Por que escolher a Fibonono?</h2>
           <div class="features-grid">
             <div class="feature-item">
               <i class="fas fa-rocket fa-4x"></i>
@@ -163,20 +394,13 @@
           alt="Fibonono"
         />
         <p><strong>Fibonono Personalizados</strong></p>
-        <p class="footer-note">
-          O presente perfeito está a um clique de distância.
-        </p>
         <div class="footer-links">
-          <a href="https://wa.me/5571999530935" aria-label="WhatsApp"
+          <a href="https://wa.me/5571999530935" target="_blank"
             ><i class="fab fa-whatsapp"></i
           ></a>
-          <a href="#" aria-label="Instagram"
-            ><i class="fab fa-instagram"></i
-          ></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
-        <p class="footer-note">
-          &copy; 2026 Fibonono. CNPJ: 00.000.000/0001-00
-        </p>
+        <p class="footer-note">&copy; 2026 Fibonono. Feito com carinho.</p>
       </footer>
     </div>
 
@@ -185,15 +409,14 @@
       const nav = document.querySelector("nav");
 
       menuToggle.addEventListener("click", () => {
-        const isOpen = nav.classList.toggle("open");
-        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        nav.classList.toggle("open");
       });
 
-      document.addEventListener("click", (event) => {
-        if (!nav.contains(event.target) && !menuToggle.contains(event.target)) {
+      // Fecha o menu ao clicar em um link (mobile)
+      document.querySelectorAll("nav a").forEach((link) => {
+        link.addEventListener("click", () => {
           nav.classList.remove("open");
-          menuToggle.setAttribute("aria-expanded", "false");
-        }
+        });
       });
     </script>
   </body>
