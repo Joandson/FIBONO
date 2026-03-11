@@ -1,273 +1,52 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-br" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fibonono | Presentes Personalizados com Nome</title>
     <meta
       name="description"
-      content="Presentes personalizados com nomes: chaveiros, canecas, camisetas e mais. Feito com carinho e qualidade premium. Peça pelo WhatsApp!"
+      content="Transforme sentimentos em lembranças únicas. Presentes 100% personalizados com entrega rápida na Bahia e em todo o Brasil."
     />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Fibonono Personalizados" />
-    <meta
-      property="og:description"
-      content="Presentes personalizados com nomes: chaveiros, canecas, camisetas e mais."
-    />
-    <meta property="og:image" content="https://i.imgur.com/kpfKWPK.jpeg" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
-
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
 
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#f97316", // Laranja vibrante para conversão
+              secondary: "#0d9488", // Teal do seu logo original
+              accent: "#15803d", // Verde para WhatsApp
+              offwhite: "#fafaf9",
+            },
+            fontFamily: {
+              sans: ["Poppins", "sans-serif"],
+              display: ["Montserrat", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
     <style>
-      :root {
-        --primary-color: #0d9488; /* Teal que combina com seu logo */
-        --secondary-color: #25d366; /* Verde WhatsApp */
-        --dark-bg: rgba(0, 0, 0, 0.75);
-        --glass: rgba(255, 255, 255, 0.08);
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Poppins", sans-serif;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        background: url("https://i.imgur.com/eZfkMxc.jpeg") no-repeat center
-          center fixed;
-        background-size: cover;
-        color: #fff;
-      }
-
-      .body-overlay {
-        background: var(--dark-bg);
-        min-height: 100vh;
-      }
-
-      /* HEADER & NAV */
-      header {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        padding: 15px 5%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: rgba(0, 0, 0, 0.9);
+      .glass-card {
+        background: rgba(255, 255, 255, 0.8);
         backdrop-filter: blur(10px);
-        z-index: 1000;
-        border-bottom: 1px solid var(--primary-color);
+        border: 1px solid rgba(0, 0, 0, 0.05);
       }
-
-      .logo img {
-        height: 50px;
-        border-radius: 5px;
-      }
-
-      nav ul {
-        display: flex;
-        list-style: none;
-      }
-      nav ul li {
-        margin-left: 25px;
-      }
-      nav ul li a {
-        color: #fff;
-        text-decoration: none;
-        font-size: 0.9rem;
-        transition: 0.3s;
-      }
-      nav ul li a:hover {
-        color: var(--primary-color);
-      }
-
-      .menu-toggle {
-        display: none;
-        background: none;
-        border: none;
-        color: #fff;
-        font-size: 1.5rem;
-        cursor: pointer;
-      }
-
-      /* HERO SECTION - Ajustada para reduzir o espaço */
-      .hero {
-        min-height: 85vh; /* Diminuído de 100vh para aproximar as seções */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 100px 20px 20px 20px; /* Padding superior para não ficar sob o header */
-      }
-
-      .hero-logo {
-        width: 120px;
-        border-radius: 50%;
-        margin-bottom: 20px;
-        box-shadow: 0 0 20px rgba(13, 148, 136, 0.5);
-      }
-
-      .hero h1 {
-        font-family: "Montserrat", sans-serif;
-        font-size: 3rem;
-        margin-bottom: 10px;
-      }
-      .hero p {
-        max-width: 600px;
-        margin-bottom: 30px;
-        font-weight: 300;
-      }
-
-      .btn-main {
-        background: var(--primary-color);
-        color: #fff;
-        padding: 15px 40px;
-        text-decoration: none;
-        border-radius: 50px;
-        font-weight: bold;
-        transition: 0.3s;
-      }
-      .btn-main:hover {
-        transform: scale(1.05);
-        filter: brightness(1.2);
-      }
-
-      /* PRODUCT GRID - Ajustado padding superior */
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 40px 20px 80px 20px; /* Reduzi de 80px para 40px no topo */
-      }
-      .section-title {
-        text-align: center;
-        margin-bottom: 40px;
-        font-size: 2rem;
-        font-family: "Montserrat";
-      }
-
-      .product-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 25px;
-      }
-
-      .product-card {
-        background: var(--glass);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 20px;
-        border-radius: 20px;
-        text-align: center;
-        transition: 0.3s;
-      }
-      .product-card:hover {
-        transform: translateY(-5px);
-        border-color: var(--primary-color);
-      }
-
-      .product-card img {
-        width: 100%;
-        border-radius: 15px;
-        margin-bottom: 15px;
-      }
-      .price {
-        display: block;
-        margin: 10px 0;
-        color: #ddd;
-        font-size: 0.9rem;
-      }
-
-      .btn-buy {
-        display: block;
-        background: var(--secondary-color);
-        color: #fff;
-        padding: 10px;
-        text-decoration: none;
-        border-radius: 10px;
-        font-weight: bold;
-      }
-
-      /* FEATURES SECTION */
-      .features-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 30px;
-        text-align: center;
-      }
-      .feature-item i {
-        color: var(--primary-color);
-        margin-bottom: 15px;
-      }
-
-      /* FOOTER */
-      footer {
-        background: #000;
-        padding: 50px 20px;
-        text-align: center;
-        border-top: 2px solid var(--primary-color);
-      }
-      .footer-brand {
-        height: 40px;
-        margin-bottom: 15px;
-      }
-      .footer-links a {
-        color: #fff;
-        font-size: 1.5rem;
-        margin: 0 10px;
-        transition: 0.3s;
-      }
-      .footer-links a:hover {
-        color: var(--primary-color);
-      }
-      .footer-note {
-        font-size: 0.8rem;
-        opacity: 0.6;
-        margin-top: 10px;
-      }
-
-      /* BOTÃO FLUTUANTE WHATSAPP */
-      .whatsapp-float {
-        position: fixed;
-        width: 60px;
-        height: 60px;
-        bottom: 25px;
-        right: 25px;
-        background-color: #25d366;
-        color: #fff;
-        border-radius: 50px;
-        text-align: center;
-        font-size: 30px;
-        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-        z-index: 1000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        transition: transform 0.3s;
+      .whatsapp-pulse {
         animation: pulse 2s infinite;
       }
-
-      .whatsapp-float:hover {
-        transform: scale(1.1);
-        color: #fff;
-      }
-
       @keyframes pulse {
         0% {
           box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
@@ -279,194 +58,395 @@
           box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
         }
       }
-
-      /* MOBILE ADJUSTMENTS */
-      @media (max-width: 768px) {
-        .menu-toggle {
-          display: block;
-        }
-        nav {
-          display: none;
-          position: absolute;
-          top: 100%;
-          left: 0;
-          width: 100%;
-          background: rgba(0, 0, 0, 0.95);
-          padding: 20px;
-        }
-        nav.open {
-          display: block;
-        }
-        nav ul {
-          flex-direction: column;
-          text-align: center;
-        }
-        nav ul li {
-          margin: 15px 0;
-        }
-        .hero h1 {
-          font-size: 2rem;
-        }
-        .hero {
-          min-height: 70vh;
-        }
-      }
     </style>
   </head>
-  <body>
-    <div class="body-overlay">
-      <a
-        href="https://wa.me/5571999530935?text=Olá%20vim%20pelo%20site%20e%20quero%20mais%20informações"
-        class="whatsapp-float"
-        target="_blank"
-      >
-        <i class="fab fa-whatsapp"></i>
-      </a>
+  <body class="bg-offwhite text-slate-800 font-sans">
+    <a
+      href="https://wa.me/5571999530935"
+      target="_blank"
+      class="fixed bottom-6 right-6 z-50 bg-[#25d366] text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl whatsapp-pulse hover:scale-110 transition-transform"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
 
-      <header>
-        <div class="logo">
-          <img src="https://i.imgur.com/kpfKWPK.jpeg" alt="Fibonono Logo" />
-        </div>
-
-        <button class="menu-toggle" aria-label="Abrir menu">
-          <i class="fas fa-bars"></i>
-        </button>
-
-        <nav>
-          <ul>
-            <li><a href="#topo">Início</a></li>
-            <li><a href="#produtos">Produtos</a></li>
-            <li><a href="#sobre">Por que nós?</a></li>
-            <li>
-              <a
-                href="https://wa.me/5571999530935?text=Olá%20vim%20pelo%20site%20e%20quero%20mais%20informações"
-                >WhatsApp</a
-              >
-            </li>
-          </ul>
-        </nav>
-      </header>
-
-      <main>
-        <section class="hero" id="topo">
-          <img
-            class="hero-logo"
-            src="https://i.imgur.com/kpfKWPK.jpeg"
-            alt="Fibonono"
-          />
-          <h1>Fibonono Personalizados</h1>
-          <p>
-            Transformamos sentimentos em presentes exclusivos. Chaveiros,
-            canecas e acessórios feitos sob medida para você.
-          </p>
-          <a href="#produtos" class="btn-main">Explorar Loja</a>
-        </section>
-
-        <section class="container" id="produtos">
-          <h2 class="section-title">Nossos Presentes</h2>
-          <div class="product-grid">
-            <div class="product-card">
-              <img src="https://i.imgur.com/OF8lRfA.jpeg" alt="Chaveiro Davi" />
-              <h3>Chaveiro Nome Davi</h3>
-              <span class="price">a partir de R$ 29,90</span>
-              <a
-                href="https://wa.me/5571999530935?text=Olá! Quero o chaveiro do Davi"
-                class="btn-buy"
-                ><i class="fab fa-whatsapp"></i> Personalizar</a
-              >
-            </div>
-            <div class="product-card">
-              <img src="https://i.imgur.com/ZBVOSPD.png" alt="Chaveiro Beto" />
-              <h3>Chaveiro Nome Beto</h3>
-              <span class="price">a partir de R$ 29,90</span>
-              <a
-                href="https://wa.me/5571999530935?text=Olá! Quero o chaveiro do Beto"
-                class="btn-buy"
-                ><i class="fab fa-whatsapp"></i> Personalizar</a
-              >
-            </div>
-            <div class="product-card">
-              <img src="https://i.imgur.com/i9lWn3o.jpeg" alt="Caneca" />
-              <h3>Caneca Personalizada</h3>
-              <span class="price">a partir de R$ 29,90</span>
-              <a
-                href="https://wa.me/5571999530935?text=Olá! Quero uma caneca personalizada"
-                class="btn-buy"
-                ><i class="fab fa-whatsapp"></i> Personalizar</a
-              >
-            </div>
-            <div class="product-card">
-              <img src="https://i.imgur.com/CuoGieT.jpeg" alt="Camiseta" />
-              <h3>Camiseta Exclusiva</h3>
-              <span class="price">a partir de R$ 29,90</span>
-              <a
-                href="https://wa.me/5571999530935?text=Olá! Quero uma camiseta personalizada"
-                class="btn-buy"
-                ><i class="fab fa-whatsapp"></i> Personalizar</a
-              >
-            </div>
-            <div class="product-card">
-              <img src="https://i.imgur.com/8QZD1zS.jpeg" alt="Diversos" />
-              <h3>Itens Diversos</h3>
-              <span class="price">a partir de R$ 29,90</span>
-              <a
-                href="https://wa.me/5571999530935?text=Olá! Quero ver outros itens"
-                class="btn-buy"
-                ><i class="fab fa-whatsapp"></i> Consultar</a
-              >
-            </div>
-          </div>
-        </section>
-
-        <section class="container" id="sobre">
-          <h2 class="section-title">Por que escolher a Fibonono?</h2>
-          <div class="features-grid">
-            <div class="feature-item">
-              <i class="fas fa-rocket fa-4x"></i>
-              <p>Entrega rápida</p>
-            </div>
-            <div class="feature-item">
-              <i class="fas fa-heart fa-4x"></i>
-              <p>100% personalizado</p>
-            </div>
-            <div class="feature-item">
-              <i class="fas fa-shield-alt fa-4x"></i>
-              <p>Qualidade premium</p>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <footer>
+    <nav
+      class="fixed w-full z-40 bg-white/90 backdrop-blur-md border-b border-gray-100 py-4 px-6 flex justify-between items-center"
+    >
+      <div class="flex items-center gap-2">
         <img
-          class="footer-brand"
           src="https://i.imgur.com/kpfKWPK.jpeg"
-          alt="Fibonono"
+          class="h-10 rounded-md"
+          alt="Logo Fibonono"
         />
-        <p><strong>Fibonono Personalizados</strong></p>
-        <div class="footer-links">
-          <a href="https://wa.me/5571999530935" target="_blank"
-            ><i class="fab fa-whatsapp"></i
-          ></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
+        <span
+          class="font-display font-bold text-xl tracking-tight text-secondary"
+          >FIBONONO</span
+        >
+      </div>
+      <div
+        class="hidden md:flex gap-8 font-medium text-sm uppercase tracking-wider"
+      >
+        <a href="#produtos" class="hover:text-primary transition">Produtos</a>
+        <a href="#depoimentos" class="hover:text-primary transition"
+          >Depoimentos</a
+        >
+        <a href="#faq" class="hover:text-primary transition">Dúvidas</a>
+      </div>
+      <a
+        href="https://wa.me/5571999530935"
+        class="bg-primary text-white px-5 py-2 rounded-full font-bold text-sm hover:brightness-110 transition"
+        >CATÁLOGO</a
+      >
+    </nav>
+
+    <header class="relative pt-32 pb-20 px-6 overflow-hidden">
+      <div class="container mx-auto text-center relative z-10">
+        <span
+          class="bg-orange-100 text-primary px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 inline-block"
+          >🎁 Presentes com Alma</span
+        >
+        <h1
+          class="font-display text-4xl md:text-6xl mb-6 text-slate-900 leading-tight"
+        >
+          Fibonono | Presentes <br /><span class="text-primary"
+            >Personalizados com Nome</span
+          >
+        </h1>
+        <p
+          class="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-8 font-light leading-relaxed"
+        >
+          Transforme sentimentos em lembranças únicas ❤️ – 100% feitos sob
+          medida com carinho e qualidade premium. ✨
+        </p>
+        <div
+          class="flex flex-col md:flex-row justify-center items-center gap-4 mb-10"
+        >
+          <span class="flex items-center gap-2 text-sm text-slate-500"
+            ><i class="fas fa-truck text-primary"></i> Entrega rápida na
+            Bahia</span
+          >
+          <span class="flex items-center gap-2 text-sm text-slate-500"
+            ><i class="fas fa-globe text-primary"></i> Enviamos para todo
+            Brasil</span
+          >
         </div>
-        <p class="footer-note">&copy; 2026 Fibonono. Feito com carinho.</p>
-      </footer>
-    </div>
+        <a
+          href="#produtos"
+          class="inline-block bg-primary text-white text-lg font-bold px-10 py-5 rounded-2xl shadow-xl shadow-orange-200 hover:-translate-y-1 transition-all active:scale-95"
+        >
+          Explorar Loja 🏷️
+        </a>
+      </div>
+    </header>
 
-    <script>
-      const menuToggle = document.querySelector(".menu-toggle");
-      const nav = document.querySelector("nav");
+    <section id="produtos" class="py-20 bg-white">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="font-display text-3xl mb-4">
+          Nossos Presentes Mais Amados 🎁
+        </h2>
+        <p class="text-slate-500 mb-12">
+          Cada detalhe é pensado para surpreender quem você ama.
+        </p>
 
-      menuToggle.addEventListener("click", () => {
-        nav.classList.toggle("open");
-      });
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            class="glass-card rounded-3xl p-4 group transition-all hover:shadow-2xl"
+          >
+            <div class="overflow-hidden rounded-2xl mb-4">
+              <img
+                src="https://i.imgur.com/OF8lRfA.jpeg"
+                class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                alt="Chaveiro"
+              />
+            </div>
+            <h3 class="font-bold text-xl mb-2">Chaveiro Premium Laser</h3>
+            <p class="text-primary font-bold text-2xl mb-4">
+              a partir de R$ 34,90
+            </p>
+            <ul class="text-left text-sm text-slate-500 space-y-2 mb-6 px-4">
+              <li>
+                <i class="fas fa-check text-green-500 mr-2"></i> Gravação a
+                laser eterna
+              </li>
+              <li>
+                <i class="fas fa-check text-green-500 mr-2"></i> Material ultra
+                resistente
+              </li>
+              <li>
+                <i class="fas fa-check text-green-500 mr-2"></i> Embalagem para
+                presente
+              </li>
+            </ul>
+            <a
+              href="https://wa.me/5571999530935?text=Quero%20personalizar%20um%20chaveiro"
+              class="block w-full bg-accent text-white py-4 rounded-xl font-bold hover:brightness-110 transition"
+            >
+              <i class="fab fa-whatsapp mr-2"></i> Personalizar Agora
+            </a>
+          </div>
 
-      document.querySelectorAll("nav a").forEach((link) => {
-        link.addEventListener("click", () => {
-          nav.classList.remove("open");
-        });
-      });
-    </script>
+          <div
+            class="glass-card rounded-3xl p-4 group transition-all hover:shadow-2xl"
+          >
+            <div class="overflow-hidden rounded-2xl mb-4">
+              <img
+                src="https://i.imgur.com/i9lWn3o.jpeg"
+                class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                alt="Caneca"
+              />
+            </div>
+            <h3 class="font-bold text-xl mb-2">Caneca Design Exclusiva</h3>
+            <p class="text-primary font-bold text-2xl mb-4">
+              a partir de R$ 39,90
+            </p>
+            <ul class="text-left text-sm text-slate-500 space-y-2 mb-6 px-4">
+              <li>
+                <i class="fas fa-check text-green-500 mr-2"></i> Cerâmica de
+                alto brilho
+              </li>
+              <li>
+                <i class="fas fa-check text-green-500 mr-2"></i> Cores vivas e
+                duradouras
+              </li>
+              <li>
+                <i class="fas fa-check text-green-500 mr-2"></i> Pode ir ao
+                micro-ondas
+              </li>
+            </ul>
+            <a
+              href="https://wa.me/5571999530935?text=Quero%20personalizar%20uma%20caneca"
+              class="block w-full bg-accent text-white py-4 rounded-xl font-bold hover:brightness-110 transition"
+            >
+              <i class="fab fa-whatsapp mr-2"></i> Personalizar Agora
+            </a>
+          </div>
+
+          <div
+            class="glass-card rounded-3xl p-4 group transition-all hover:shadow-2xl"
+          >
+            <div class="overflow-hidden rounded-2xl mb-4">
+              <img
+                src="https://i.imgur.com/CuoGieT.jpeg"
+                class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                alt="Camiseta"
+              />
+            </div>
+            <h3 class="font-bold text-xl mb-2">Camiseta Personalizada</h3>
+            <p class="text-primary font-bold text-2xl mb-4">
+              a partir de R$ 59,90
+            </p>
+            <ul class="text-left text-sm text-slate-500 space-y-2 mb-6 px-4">
+              <li>
+                <i class="fas fa-check text-green-500 mr-2"></i> Algodão 100%
+                Premium
+              </li>
+              <li>
+                <i class="fas fa-check text-green-500 mr-2"></i> Estampa que não
+                racha
+              </li>
+              <li>
+                <i class="fas fa-check text-green-500 mr-2"></i> Conforto
+                garantido
+              </li>
+            </ul>
+            <a
+              href="https://wa.me/5571999530935?text=Quero%20personalizar%20uma%20camiseta"
+              class="block w-full bg-accent text-white py-4 rounded-xl font-bold hover:brightness-110 transition"
+            >
+              <i class="fab fa-whatsapp mr-2"></i> Personalizar Agora
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="depoimentos" class="py-20 bg-slate-50">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="font-display text-3xl mb-12 italic">
+          "O que estão falando da Fibonono" ⭐⭐⭐⭐⭐
+        </h2>
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left"
+        >
+          <div
+            class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100"
+          >
+            <div class="text-yellow-400 mb-2">★★★★★</div>
+            <p class="text-slate-600 mb-4 italic">
+              "O chaveiro com o nome do meu filho ficou impecável. A gravação é
+              muito precisa!"
+            </p>
+            <p class="font-bold text-sm">
+              Mariana S.
+              <span class="text-slate-400 font-normal"
+                >| Cruz das Almas - BA</span
+              >
+            </p>
+          </div>
+          <div
+            class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100"
+          >
+            <div class="text-yellow-400 mb-2">★★★★★</div>
+            <p class="text-slate-600 mb-4 italic">
+              "Entrega super rápida! Comprei para presente e a embalagem já veio
+              linda."
+            </p>
+            <p class="font-bold text-sm">
+              Ricardo J.
+              <span class="text-slate-400 font-normal">| Salvador - BA</span>
+            </p>
+          </div>
+          <div
+            class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100"
+          >
+            <div class="text-yellow-400 mb-2">★★★★★</div>
+            <p class="text-slate-600 mb-4 italic">
+              "Qualidade da caneca me surpreendeu. Melhor atendimento via
+              WhatsApp que já tive."
+            </p>
+            <p class="font-bold text-sm">
+              Ana Paula
+              <span class="text-slate-400 font-normal"
+                >| Feira de Santana - BA</span
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div class="text-center">
+            <div
+              class="w-16 h-16 bg-orange-100 text-primary rounded-full flex items-center justify-center text-2xl mx-auto mb-4"
+            >
+              🚚
+            </div>
+            <h4 class="font-bold text-lg mb-2">Entrega rápida</h4>
+            <p class="text-slate-500 text-sm">
+              Produção expressa e envio em até 5 dias úteis para todo o Brasil.
+            </p>
+          </div>
+          <div class="text-center">
+            <div
+              class="w-16 h-16 bg-orange-100 text-primary rounded-full flex items-center justify-center text-2xl mx-auto mb-4"
+            >
+              ✍️
+            </div>
+            <h4 class="font-bold text-lg mb-2">100% Personalizado</h4>
+            <p class="text-slate-500 text-sm">
+              Você escolhe o nome, a frase e o estilo. Criamos algo único para
+              você.
+            </p>
+          </div>
+          <div class="text-center">
+            <div
+              class="w-16 h-16 bg-orange-100 text-primary rounded-full flex items-center justify-center text-2xl mx-auto mb-4"
+            >
+              ⭐
+            </div>
+            <h4 class="font-bold text-lg mb-2">Qualidade Premium</h4>
+            <p class="text-slate-500 text-sm">
+              Utilizamos materiais de primeira linha e tecnologia laser de
+              ponta.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="py-20 bg-slate-50 px-6">
+      <div class="container mx-auto max-w-3xl">
+        <h2 class="font-display text-3xl text-center mb-12">
+          Perguntas Frequentes 💡
+        </h2>
+        <div class="space-y-4">
+          <details
+            class="group bg-white rounded-xl shadow-sm border border-gray-100 p-4"
+          >
+            <summary
+              class="list-none font-bold cursor-pointer flex justify-between items-center"
+            >
+              Os nomes são gravados a laser?
+              <span class="group-open:rotate-180 transition">▼</span>
+            </summary>
+            <p class="text-slate-500 mt-4 text-sm leading-relaxed">
+              Sim! Utilizamos tecnologia de gravação a laser de alta precisão em
+              metal, madeira e outros materiais, garantindo que o nome nunca
+              apague.
+            </p>
+          </details>
+          <details
+            class="group bg-white rounded-xl shadow-sm border border-gray-100 p-4"
+          >
+            <summary
+              class="list-none font-bold cursor-pointer flex justify-between items-center"
+            >
+              Qual o prazo de produção?
+              <span class="group-open:rotate-180 transition">▼</span>
+            </summary>
+            <p class="text-slate-500 mt-4 text-sm leading-relaxed">
+              Nosso prazo médio de produção é de 2 a 3 dias úteis. O prazo de
+              entrega varia conforme sua região, mas costuma chegar em até 5
+              dias para a Bahia.
+            </p>
+          </details>
+          <details
+            class="group bg-white rounded-xl shadow-sm border border-gray-100 p-4"
+          >
+            <summary
+              class="list-none font-bold cursor-pointer flex justify-between items-center"
+            >
+              Como faço para personalizar?
+              <span class="group-open:rotate-180 transition">▼</span>
+            </summary>
+            <p class="text-slate-500 mt-4 text-sm leading-relaxed">
+              É muito simples! Basta clicar no botão "Personalizar no WhatsApp"
+              do produto desejado. Nosso time irá te atender pessoalmente para
+              definir os detalhes da arte.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-slate-900 text-white py-16 px-6 text-center">
+      <img
+        src="https://i.imgur.com/kpfKWPK.jpeg"
+        class="h-16 mx-auto rounded-xl mb-6 shadow-lg shadow-black/50"
+        alt="Fibonono Logo"
+      />
+      <h3 class="font-display text-2xl mb-4">FIBONONO</h3>
+      <p class="text-slate-400 mb-8 max-w-md mx-auto italic font-light">
+        "A arte de presentear com identidade e afeto."
+      </p>
+
+      <div
+        class="bg-white/5 p-8 rounded-3xl max-w-lg mx-auto mb-10 border border-white/10"
+      >
+        <p class="text-lg mb-4">Prefere falar agora? Clique abaixo 👇</p>
+        <a
+          href="https://wa.me/5571999530935"
+          class="text-accent font-bold text-2xl hover:underline"
+        >
+          <i class="fab fa-whatsapp"></i> (71) 99953-0935
+        </a>
+      </div>
+
+      <div class="flex justify-center gap-6 text-2xl mb-8">
+        <a href="#" class="hover:text-primary transition"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a href="#" class="hover:text-primary transition"
+          ><i class="fab fa-facebook"></i
+        ></a>
+      </div>
+
+      <p class="text-xs text-slate-500 tracking-widest uppercase">
+        &copy; 2026 Fibonono Personalizados. Todos os direitos reservados.
+      </p>
+    </footer>
   </body>
 </html>
